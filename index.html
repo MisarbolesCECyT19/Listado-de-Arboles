@@ -1,90 +1,145 @@
-<html>
+<html><!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <title>Mis Arboles CECyT 19</title>
     <style>
-        body {
-            background-color: #f4f4f4; 
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
+     
+        body {background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;}
+
+       
+        .glass-container {background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            margin: 50px 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            max-width: 1000px; }
+
         .titulo {
-            color: #6a1b31; 
-            font-size: 40px;
-            margin-top: 30px;
+             color: #ffffff; 
+            font-size: 45px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
             font-weight: bold;
+            letter-spacing: 1px;
         }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ffffff, transparent);
+            margin-bottom: 30px;
+        }
+
         .contenedor-botones {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); 
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
             gap: 15px; 
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
+            margin-top: 20px;
         }
+
+       
         button {
             background-color: #228B22;
             color: white;
             border: none;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 16px;
-            transition: 0.3s;
+            font-weight: 600;
+            transition: all 0.3s ease;
             width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
+       
         button:hover {
             background-color: #006400; 
-            transform: scale(1.05); 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
         a {
             text-decoration: none; 
+        }
+
+      
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            color: white;
+            font-size: 14px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
 <body>
 
-    <div class="titulo">Listado de Árboles - CECyT 19</div>
-    <hr width="50%">
+    <div class="glass-container">
+        <div class="titulo">Listado de Árboles - CECyT 19</div>
+        <hr>
 
-    <div class="contenedor-botones">
-        <a href="Arbol 1.html"><button>Arbol 1</button></a>
-        <a href="Arbol 2.html"><button>Arbol 2</button></a>
-        <a href="Arbol 3.html"><button>Arbol 3</button></a>
-        <a href="Arbol 4.html"><button>Arbol 4</button></a>
-        
-        <a href="Arbol 5.html"><button>Arbol 5</button></a>
-        <a href="Arbol 6.html"><button>Arbol 6</button></a>
-        <a href="Arbol 7.html"><button>Arbol 7</button></a>
-        <a href="Arbol 8.html"><button>Arbol 8</button></a>
-        
-        <a href="Arbol 9.html"><button>Arbol 9</button></a>
-        <a href="Arbol 10.html"><button>Arbol 10</button></a>
-        <a href="Arbol 11.html"><button>Arbol 11</button></a>
-        <a href="Arbol 12.html"><button>Arbol 12</button></a>
-        
-        <a href="Arbol 13.html"><button>Arbol 13</button></a>
-        <a href="Arbol 14.html"><button>Arbol 14</button></a>
-        <a href="Arbol 15.html"><button>Arbol 15</button></a>
-        <a href="Arbol 16.html"><button>Arbol 16</button></a>
-        
-        <a href="Arbol 17.html"><button>Arbol 17</button></a>
-        <a href="Arbol 18.html"><button>Arbol 18</button></a>
-        <a href="Arbol 19.html"><button>Arbol 19</button></a>
-        <a href="Arbol 20.html"><button>Arbol 20</button></a>
+        <div class="contenedor-botones">
+            <a href="Arbol 1.html"><button>Arbol 1</button></a>
+            <a href="Arbol 2.html"><button>Arbol 2</button></a>
+            <a href="Arbol 3.html"><button>Arbol 3</button></a>
+            <a href="Arbol 4.html"><button>Arbol 4</button></a>
+            
+            <a href="Arbol 5.html"><button>Arbol 5</button></a>
+            <a href="Arbol 6.html"><button>Arbol 6</button></a>
+            <a href="Arbol 7.html"><button>Arbol 7</button></a>
+            <a href="Arbol 8.html"><button>Arbol 8</button></a>
+            
+            <a href="Arbol 9.html"><button>Arbol 9</button></a>
+            <a href="Arbol 10.html"><button>Arbol 10</button></a>
+            <a href="Arbol 11.html"><button>Arbol 11</button></a>
+            <a href="Arbol 12.html"><button>Arbol 12</button></a>
+            
+            <a href="Arbol 13.html"><button>Arbol 13</button></a>
+            <a href="Arbol 14.html"><button>Arbol 14</button></a>
+            <a href="Arbol 15.html"><button>Arbol 15</button></a>
+            <a href="Arbol 16.html"><button>Arbol 16</button></a>
+            
+            <a href="Arbol 17.html"><button>Arbol 17</button></a>
+            <a href="Arbol 18.html"><button>Arbol 18</button></a>
+            <a href="Arbol 19.html"><button>Arbol 19</button></a>
+            <a href="Arbol 20.html"><button>Arbol 20</button></a>
 
-        <a href="Arbol 21.html"><button>Arbol 21</button></a>
-        <a href="Arbol 22.html"><button>Arbol 22</button></a>
-        <a href="Arbol 23.html"><button>Arbol 23</button></a>
-        <a href="Arbol 24.html"><button>Arbol 24</button></a>
-
-        <a href="Arbol 25.html"><button>Arbol 25</button></a>
-        <a href="Arbol 26.html"><button>Arbol 26</button></a>
-        <a href="Arbol 27.html"><button>Arbol 27</button></a>
+            <a href="Arbol 21.html"><button>Arbol 21</button></a>
+            <a href="Arbol 22.html"><button>Arbol 22</button></a>
+            <a href="Arbol 23.html"><button>Arbol 23</button></a>
+            <a href="Arbol 24.html"><button>Arbol 24</button></a> <a href="Arbol 25.html"><button>Arbol 25</button></a>
+            <a href="Arbol 26.html"><button>Arbol 26</button></a>
+            <a href="Arbol 27.html"><button>Arbol 27</button></a>
+        </div>
     </div>
 
-    <footer style="margin-top: 50px; color: #777;">
-     
+    <footer>
+        <font color="white">
+        2026 CECyT 19 "Leona Vicario" | Proyecto de Reforestación
     </footer>
 
 </body>
