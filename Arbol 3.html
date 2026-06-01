@@ -1,66 +1,302 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Arbol 3 - CECyT 19</title>
-    <style>
-        body {
-            background-color: #f4f4f4; 
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-        .contenedor {
-            background-color: white;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .titulo-arbol {
-            color: #6a1b31; 
-            font-size: 35px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .info-tecnica {
-            text-align: left;
-            display: inline-block;
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-        .boton-regresar {
-            display: inline-block;
-            margin-top: 30px;
-            background-color: #228B22;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .boton-regresar:hover {
-            background-color: #006400;
-            transform: scale(1.05);
-        }
-        img {
-            border-radius: 10px;
-            margin-top: 20px;
-            border: 3px solid #6a1b31;
-        }
+<!DOCTYPE html><html lang="es-MX"><head>    
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Árbol 3: Sabino - CECyT 19</title>    
+    <link rel="icon" href="logosabino.png">    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">    
+    <style>        
+        :root {            
+            --color-principal: #7A1C31;            
+            --color-secundario: #7A1C31;            
+            --color-secundario-hover: #5c1222;            
+            --bg-pantalla: #faf6f7;            
+            --texto-oscuro: #2b1419;            
+            --texto-claro: #7a686b;            
+            --accent: #eed2d5;            
+            --sombra-suave: 0 4px 15px rgba(122, 28, 49, 0.04);            
+            --borde-redondeado: 16px;        
+        }        
+        body {            
+            background-color: var(--bg-pantalla);            
+            font-family: 'Inter', sans-serif;            
+            margin: 0;            
+            padding: 40px 20px;            
+            color: var(--texto-oscuro);            
+            display: flex;            
+            flex-direction: column;            
+            align-items: center;        
+        }        
+        .encabezado-fuera {            
+            text-align: center;            
+            margin-bottom: 40px;            
+            max-width: 900px;            
+            width: 100%;        
+        }        
+        .titulo-arbol {            
+            color: var(--color-principal);            
+            font-family: 'Playfair Display', serif;            
+            font-size: 48px;            
+            font-weight: 700;            
+            margin: 0 0 10px 0;            
+            letter-spacing: -0.5px;        
+        }        
+        .subtitulo {            
+            font-style: italic;            
+            color: var(--texto-claro);            
+            font-size: 20px;            
+            margin: 0;            
+            font-weight: 400;            
+            letter-spacing: 0.5px;        
+        }        
+        .contenedor-principal {            
+            background-color: white;            
+            max-width: 1100px;            
+            width: 100%;            
+            border-radius: var(--borde-redondeado);            
+            box-shadow: 0 10px 30px rgba(122, 28, 49, 0.06);            
+            display: flex;            
+            gap: 40px;            
+            padding: 50px;            
+            box-sizing: border-box;            
+            overflow: hidden;            
+            animation: slideUp 0.6s ease-out forwards;        
+        }        
+        @keyframes slideUp {            
+            from { opacity: 0; transform: translateY(20px); }            
+            to { opacity: 1; transform: translateY(0); }        
+        }        
+        .columna-imagen {            
+            flex: 1.2;            
+            display: flex;            
+            align-items: center;            
+            justify-content: center;        
+        }        
+        .contenedor-imagen-arbol {            
+            width: 100%;            
+            height: 100%;            
+            max-height: 700px;            
+            border-radius: 12px;            
+            overflow: hidden;            
+            box-shadow: var(--sombra-suave);            
+            border: 1px solid rgba(0, 0, 0, 0.05);            
+            box-sizing: border-box;        
+        }        
+        .imagen-arbol-plantado {            
+            width: 100%;            
+            height: 100%;            
+            object-fit: cover;            
+            display: block;        
+        }        
+        .columna-info {            
+            flex: 1;            
+            display: flex;            
+            flex-direction: column;            
+            gap: 30px;        
+        }        
+        .seccion-qr {            
+            text-align: center;            
+            padding: 20px;            
+            border: 1px solid #edf2f7;            
+            border-radius: 12px;            
+            background-color: #fafbfd;        
+        }        
+        .qr-code {            
+            border-radius: 12px;            
+            padding: 10px;            
+            background: white;            
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);            
+            border: 2px solid #edf2f7;        
+        }        
+        .grid-cuadros {            
+            display: grid;            
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));            
+            gap: 20px;        
+        }        
+        .cuadro {            
+            background: #ffffff;            
+            border: 1px solid #e2e8f0;            
+            border-radius: 12px;            
+            padding: 25px;            
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);            
+            border-left: 5px solid var(--color-principal);            
+            transition: all 0.3s ease;            
+            position: relative;            
+            overflow: hidden;        
+        }        
+        .cuadro:hover {            
+            transform: translateY(-3px);            
+            box-shadow: 0 12px 24px rgba(122, 28, 49, 0.08);            
+            border-color: #cbd5e0;            
+            border-left-width: 8px;        
+        }        
+        .cuadro h3 {            
+            color: var(--color-principal);            
+            font-family: 'Playfair Display', serif;            
+            margin: 0 0 15px 0;            
+            font-size: 22px;            
+            font-weight: 600;        
+        }        
+        .cuadro ul {            
+            padding-left: 18px;            
+            margin: 0;            
+            color: #4a5568;            
+            line-height: 1.7;        
+        }        
+        .cuadro li {            
+            margin-bottom: 8px;        
+        }        
+        .cuadro li:last-child {            
+            margin-bottom: 0;        
+        }        
+        .seccion-inferior {            
+            width: 100%;            
+            max-width: 1100px;            
+            margin-top: 40px;            
+            display: flex;            
+            flex-direction: column;            
+            align-items: center;            
+            gap: 30px;        
+        }        
+        .cuadro-frase {            
+            position: relative;            
+            width: 100%;            
+            border: 1px solid #e2e8f0;            
+            border-radius: 12px;            
+            padding: 35px 25px;            
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);            
+            overflow: hidden;            
+            text-align: center;            
+            background-color: #ffffff;            
+            box-sizing: border-box;        
+        }        
+        .cuadro-frase::before {            
+            content: "";            
+            position: absolute;            
+            top: 0; left: 0; right: 0; bottom: 0;            
+            background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=80');            
+            background-size: cover;            
+            background-position: center;            
+            opacity: 0.08;            
+            z-index: 1;        
+        }        
+        .contenido-frase {            
+            position: relative;            
+            z-index: 2;            
+            font-style: italic;            
+            font-size: 18px;            
+            color: var(--texto-oscuro);            
+            line-height: 1.6;            
+            font-weight: 600;            
+            max-width: 800px;            
+            margin: 0 auto;        
+        }        
+        .boton-contenedor {            
+            text-align: center;        
+        }        
+        .boton-regresar {            
+            display: inline-flex;            
+            align-items: center;            
+            background-color: var(--color-secundario);            
+            color: white;            
+            padding: 14px 32px;            
+            text-decoration: none;            
+            border-radius: 12px;            
+            font-weight: 600;            
+            font-size: 16px;            
+            transition: all 0.3s ease;            
+            box-shadow: 0 4px 12px rgba(122, 28, 49, 0.15);        
+        }        
+        .boton-regresar:hover {            
+            background-color: var(--color-secundario-hover);            
+            transform: translateY(-2px);            
+            box-shadow: 0 8px 20px rgba(122, 28, 49, 0.25);        
+        }        
+        @media (max-width: 900px) {            
+            .contenedor-principal {                
+                flex-direction: column;                
+                padding: 30px;                
+                gap: 30px;            
+            }            
+            .columna-imagen {                
+                flex: none;                
+                width: 100%;                
+                order: -1;            
+            }            
+            .contenedor-imagen-arbol {                
+                height: 400px;            
+            }            
+            .columna-info {                
+                flex: none;                
+                width: 100%;            
+            }            
+            .titulo-arbol {                
+                font-size: 36px;            
+            }            
+            .subtitulo {                
+                font-size: 18px;            
+            }            
+            .contenido-frase {                
+                font-size: 16px;            
+            }        
+        }    
     </style>
 </head>
-<body>
-
-    <div class="contenedor">
-        <div class="titulo-arbol">Árbol 3</div>
-     <p><img src="https://api.qrcode-monkey.com/tmp/1d3820a28d9918b8014e36b83b1d665d.svg?1774245408608" width="300"></p>
-        <a href="index.html" class="boton-regresar">⬅ Volver al Listado</a>
-    </div>
-
-  
-
+<body>    
+    <header class="encabezado-fuera">        
+        <h1 class="titulo-arbol">Árbol 3: Sabino</h1>        
+        <p class="subtitulo">Taxodium mucronatum (Ahuehuete)</p>    
+    </header>    
+    <main class="contenedor-principal">        
+        <section class="columna-imagen">            
+            <div class="contenedor-imagen-arbol">                
+                <img class="imagen-arbol-plantado" src="WhatsApp Image 2026-05-31 at 17.37.31 (1).jpg" alt="Sabino recién plantado en el CECyT 19">            
+            </div>        
+        </section>        
+        <aside class="columna-info">            
+            <section class="seccion-qr">                
+                <img class="qr-code" src="https://api.qrcode-monkey.com/tmp/1d3820a28d9918b8014e36b83b1d665d.svg?1774245408608" width="160" alt="Código QR Sabino">            
+            </section>            
+            <section class="grid-cuadros">                
+                <div class="cuadro">                    
+                    <h3>Características</h3>                    
+                    <ul>                        
+                        <li><strong>Tipo:</strong> Árbol gigante de inmensa longevidad</li>                        
+                        <li><strong>Altura:</strong> Alcanza alturas de 20 a 45 metros</li>                        
+                        <li><strong>Tronco:</strong> Sumamente grueso, robusto y de gran diámetro</li>                        
+                        <li><strong>Follaje:</strong> Hojas pequeñas y finas que caen en invierno</li>                    
+                    </ul>                
+                </div>                
+                <div class="cuadro">                    
+                    <h3>Ecosistema</h3>                    
+                    <ul>                        
+                        <li><strong>Hábitat:</strong> Ribereño, crece junto a ríos, arroyos o manantiales</li>                        
+                        <li><strong>Clima ideal:</strong> Templados a semicálidos con alta humedad</li>                        
+                        <li><strong>Suelo:</strong> Terrenos profundos, fangosos y muy húmedos</li>                    
+                    </ul>                
+                </div>                
+                <div class="cuadro">                    
+                    <h3>Impacto Social</h3>                    
+                    <ul>                        
+                        <li>Declarado históricamente como el Árbol Nacional de México</li>                        
+                        <li>Símbolo cultural de identidad, misticismo y leyenda ancestral</li>                        
+                        <li>Previene la erosión de las riberas y protege los mantos acuíferos</li>                        
+                        <li>Ofrece majestuosas zonas de sombra y refugio ecológico masivo</li>                    
+                    </ul>                
+                </div>            
+            </section>        
+        </aside>    
+    </main>    
+    <footer class="seccion-inferior">        
+        <section class="cuadro-frase">            
+            <div class="contenido-frase">                
+                "¡Qué pequeñas son mis manos…! En relación con todo lo que la vida ha querido darme." — Ramón J. Sénder            
+            </div>        
+        </section>        
+        <div class="boton-contenedor">            
+            <a href="index.html" class="boton-regresar">                
+                Volver al Listado            
+            </a>        
+        </div>    
+    </footer>
 </body>
 </html>
