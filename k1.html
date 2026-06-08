@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Aula - Generación Verde</title>
+    <style>
+        :root {
+            --guinda-ipn: #660033;
+            --guinda-claro: #7A1C47;
+            --guinda-hover: #4d0026;
+            --blanco: #ffffff;
+            --gris-fondo: #f5f5f5;
+            --gris-borde: #cccccc;
+            --texto: #222222;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--gris-fondo);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--guinda-ipn);
+            color: var(--blanco);
+            border-bottom: 5px solid var(--gris-borde);
+            padding: 2rem 1rem;
+        }
+
+        .header-contenedor {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .logo-header {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .texto-header {
+            text-align: center;
+            flex-grow: 1;
+            padding: 0 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin: 1rem 0 0 0;
+            font-size: 1.3rem;
+            font-style: italic;
+        }
+
+        .layout-principal {
+            display: table;
+            width: 100%;
+            max-width: 1300px;
+            margin: 2rem auto;
+            table-layout: fixed;
+        }
+
+        .columna-izquierda, .columna-derecha, .columna-centro {
+            display: table-cell;
+            vertical-align: top;
+            padding: 0 1rem;
+        }
+
+        .columna-izquierda, .columna-derecha { width: 25%; }
+        .columna-centro { width: 50%; padding: 0 1.5rem; }
+
+        .contenedor-informacion {
+            background-color: var(--blanco);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--guinda-ipn);
+            text-align: justify;
+        }
+
+        h2 {
+            color: var(--guinda-ipn);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--guinda-claro);
+            padding-bottom: 0.3rem;
+            margin-top: 0;
+        }
+
+        ul { padding-left: 1.2rem; margin-bottom: 2rem; }
+        ul li { margin-bottom: 0.8rem; }
+
+        .contenedor-boton { text-align: center; margin-top: 2rem; }
+
+        .btn-listado {
+            display: inline-block;
+            background-color: var(--guinda-ipn);
+            color: var(--blanco);
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 2px solid var(--guinda-claro);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+
+        .btn-listado:hover {
+            background-color: var(--guinda-hover);
+            transform: translateY(-2px);
+        }
+
+        .bloque-imagen { margin-bottom: 1.5rem; }
+        .bloque-imagen img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: #eee;
+            min-height: 180px;
+        }
+
+        footer {
+            background-color: var(--guinda-ipn);
+            color: var(--blanco);
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--gris-borde);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-contenedor">
+            <img src="ipnlogo.png" alt="Logo IPN" class="logo-header">
+            <div class="texto-header">
+                <h1>Generación Verde</h1>
+                <p>¡Sembrar un árbol es sembrar esperanza para el futuro!</p>
+            </div>
+            <img src="cecytlogo.png" alt="Logo CECyT" class="logo-header">
+        </div>
+    </header>
+
+    <div class="layout-principal">
+        <div class="columna-izquierda">
+            <div class="bloque-imagen"><img src="r1.jpg" alt=""></div>
+            <div class="bloque-imagen"><img src="l2.jpg" alt=""></div>
+        </div>
+
+        <div class="columna-centro">
+            <div class="contenedor-informacion">
+                <h2>Proyecto Aula</h2>
+                <p><strong>Generación Verde</strong> es una propuesta institucional enfocada en el cuidado del entorno y la formación de una comunidad consciente de su responsabilidad ecológica.</p>
+
+                <h2>Objetivo</h2>
+                <p>Contribuir al desarrollo ambiental, formativo y comunitario de la escuela de nueva creación mediante la siembra y cuidado de árboles, promoviendo en los estudiantes la responsabilidad ecológica, el trabajo colaborativo y la aplicación práctica de los aprendizajes de distintas asignaturas.</p>
+
+                <h2>Objetivos específicos</h2>
+                <ul>
+                    <li>Reforestar áreas de la escuela para mejorar el entorno.</li>
+                    <li>Fomentar la conciencia ambiental y compromiso escolar.</li>
+                    <li>Aplicar conocimientos académicos en proyectos reales.</li>
+                    <li>Desarrollar liderazgo mediante el trabajo en equipo.</li>
+                    <li>Registrar y dar seguimiento al crecimiento de los árboles.</li>
+                    <li>Fortalecer el sentido de pertenencia institucional.</li>
+                </ul>
+
+                <div class="contenedor-boton">
+                    <a href="index.html" class="btn-listado">Listado de Árboles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="columna-derecha">
+            <div class="bloque-imagen"><img src="l1.jpg" alt=""></div>
+            <div class="bloque-imagen"><img src="r2.jpg" alt=""></div>
+        </div>
+    </div>
+</body>
+</html>
