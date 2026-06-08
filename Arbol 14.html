@@ -1,66 +1,454 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Arbol 14 - CECyT 19</title>
-    <style>
-        body {
-            background-color: #f4f4f4; 
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-        .contenedor {
+<!DOCTYPE html><html lang="es-MX"><head>     
+    <meta charset="utf-8">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <title> Charles Darwin: Sabino - CECyT 19</title>     
+    <link rel="icon" href="img/logosabino.png">     
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">     
+    <style>         
+        :root {            
+            --color-principal: #7A1C31;            
+            --color-secundario: #7A1C31;            
+            --color-secundario-hover: #5c1222;            
+            --bg-pantalla: #faf6f7;            
+            --texto-oscuro: #2b1419;            
+            --texto-claro: #7a686b;            
+            --accent: #eed2d5;            
+            --sombra-suave: 0 4px 15px rgba(122, 28, 49, 0.04);            
+            --borde-redondeado: 16px;        
+        }        
+        body {            
+            background-color: var(--bg-pantalla);            
+            font-family: 'Inter', sans-serif;            
+            margin: 0;            
+            padding: 40px 20px;            
+            color: var(--texto-oscuro);            
+            display: flex;            
+            flex-direction: column;            
+            align-items: center;        
+        }        
+        .encabezado-fuera {            
+            text-align: center;            
+            margin-bottom: 40px;            
+            max-width: 900px;            
+            width: 100%;        
+        }        
+        .titulo-arbol {            
+            color: var(--color-principal);            
+            font-family: 'Playfair Display', serif;            
+            font-size: 48px;            
+            font-weight: 700;            
+            margin: 0 0 10px 0;            
+            letter-spacing: -0.5px;        
+        }        
+        .subtitulo {            
+            font-style: italic;            
+            color: var(--texto-claro);            
+            font-size: 20px;            
+            margin: 0;            
+            font-weight: 400;            
+            letter-spacing: 0.5px;        
+        }        
+        .contenedor-principal {            
+            background-color: white;            
+            max-width: 1100px;            
+            width: 100%;            
+            border-radius: var(--borde-redondeado);            
+            box-shadow: 0 10px 30px rgba(122, 28, 49, 0.06);            
+            display: flex;            
+            gap: 40px;            
+            padding: 50px;            
+            box-sizing: border-box;            
+            overflow: hidden;            
+            animation: slideUp 0.6s ease-out forwards;        
+        }        
+        @keyframes slideUp {            
+            from { opacity: 0; transform: translateY(20px); }            
+            to { opacity: 1; transform: translateY(0); }        
+        }        
+        .columna-imagen {            
+            flex: 1.2;            
+            display: flex;            
+            align-items: center;            
+            justify-content: center;        
+        }        
+        .contenedor-imagen-arbol {            
+            width: 100%;            
+            height: 100%;            
+            max-height: 700px;            
+            border-radius: 12px;            
+            overflow: hidden;            
+            box-shadow: var(--sombra-suave);            
+            border: 1px solid rgba(0, 0, 0, 0.05);            
+            box-sizing: border-box;        
+        }        
+        .imagen-arbol-plantado {            
+            width: 100%;            
+            height: 100%;            
+            object-fit: cover;            
+            display: block;        
+        }        
+        .columna-info {            
+            flex: 1;            
+            display: flex;            
+            flex-direction: column;            
+            gap: 30px;        
+        }        
+        .seccion-qr {            
+            text-align: center;            
+            padding: 20px;            
+            border: 1px solid #edf2f7;            
+            border-radius: 12px;            
+            background-color: #fafbfd;        
+        }        
+        .qr-code {            
+            border-radius: 12px;            
+            padding: 10px;            
+            background: white;            
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);            
+            border: 2px solid #edf2f7;        
+        }        
+        .grid-cuadros {            
+            display: flex;
+            flex-direction: column;
+            gap: 20px;        
+        }        
+        .cuadro {            
+            background: #ffffff;            
+            border: 1px solid #e2e8f0;            
+            border-radius: 12px;            
+            padding: 25px;            
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);            
+            border-left: 5px solid var(--color-principal);            
+            transition: all 0.3s ease;            
+            position: relative;            
+            overflow: hidden;        
+        }        
+        .cuadro:hover {            
+            transform: translateY(-3px);            
+            box-shadow: 0 12px 24px rgba(122, 28, 49, 0.08);            
+            border-color: #cbd5e0;            
+            border-left-width: 8px;        
+        }        
+        .cuadro h3 {            
+            color: var(--color-principal);            
+            font-family: 'Playfair Display', serif;            
+            margin: 0 0 15px 0;            
+            font-size: 22px;            
+            font-weight: 600;        
+        }        
+        .cuadro ul {            
+            padding-left: 18px;            
+            margin: 0;            
+            color: #4a5568;            
+            line-height: 1.7;        
+        }        
+        .cuadro li {            
+            margin-bottom: 8px;        
+        }        
+        .cuadro li:last-child {            
+            margin-bottom: 0;        
+        }        
+        .seccion-inferior {            
+            width: 100%;            
+            max-width: 1100px;            
+            margin-top: 40px;            
+            display: flex;            
+            flex-direction: column;            
+            align-items: center;            
+            gap: 30px;        
+        }        
+        
+        
+        .contenedor-simulador {
+            width: 100%;
             background-color: white;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            border-radius: var(--borde-redondeado);
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(122, 28, 49, 0.04);
+            box-sizing: border-box;
         }
-        .titulo-arbol {
-            color: #6a1b31; 
-            font-size: 35px;
-            font-weight: bold;
+        .simulador-titulo {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-principal);
+            font-size: 26px;
+            margin-top: 0;
             margin-bottom: 10px;
+            text-align: center;
         }
-        .info-tecnica {
-            text-align: left;
-            display: inline-block;
-            margin-top: 20px;
-            line-height: 1.6;
+        .simulador-descripcion {
+            color: var(--texto-claro);
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 1.5;
         }
-        .boton-regresar {
-            display: inline-block;
-            margin-top: 30px;
-            background-color: #228B22;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
+        .simulador-controles {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .btn-clima {
+            background-color: #f0e6e8;
+            color: var(--color-principal);
+            border: 2px solid transparent;
+            padding: 12px 24px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
             border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .boton-regresar:hover {
-            background-color: #006400;
-            transform: scale(1.05);
+        .btn-clima:hover {
+            background-color: var(--accent);
         }
-        img {
-            border-radius: 10px;
-            margin-top: 20px;
-            border: 3px solid #6a1b31;
+        .btn-clima.activo {
+            background-color: var(--color-principal);
+            color: white;
+            box-shadow: 0 4px 12px rgba(122, 28, 49, 0.2);
         }
+        .simulador-pantalla {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #fafbfd;
+            border: 1px solid #edf2f7;
+            border-radius: 12px;
+            padding: 30px 15px;
+            min-height: 220px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .organismo-caja {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .grafico-ave {
+            font-size: 55px;
+            margin-bottom: 10px;
+            display: inline-block;
+            transition: transform 0.5s ease;
+        }
+        .poblacion-barra-bg {
+            background-color: #e2e8f0;
+            border-radius: 20px;
+            height: 12px;
+            width: 80%;
+            margin: 8px auto;
+            overflow: hidden;
+        }
+        .poblacion-barra-color {
+            background-color: var(--color-principal);
+            height: 100%;
+            width: 50%;
+            border-radius: 20px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .ave-nombre {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--texto-oscuro);
+            margin-bottom: 4px;
+        }
+        .ave-detalle {
+            font-size: 13px;
+            color: var(--texto-claro);
+        }
+        .explicacion-dinamica {
+            margin-top: 25px;
+            background-color: #fff9fa;
+            border-left: 4px solid var(--color-principal);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4a3135;
+        }
+
+        .boton-contenedor {            
+            text-align: center;        
+        }        
+        .boton-regresar {            
+            display: inline-flex;            
+            align-items: center;            
+            background-color: var(--color-secundario);            
+            color: white;            
+            padding: 14px 32px;            
+            text-decoration: none;            
+            border-radius: 12px;            
+            font-weight: 600;            
+            font-size: 16px;            
+            transition: all 0.3s ease;            
+            box-shadow: 0 4px 12px rgba(122, 28, 49, 0.15);        
+        }        
+        .boton-regresar:hover {            
+            background-color: var(--color-secundario-hover);            
+            transform: translateY(-2px);            
+            box-shadow: 0 8px 20px rgba(122, 28, 49, 0.25);        
+        }        
+        @media (max-width: 900px) {            
+            .contenedor-principal {                
+                flex-direction: column;                
+                padding: 30px;                
+                gap: 30px;            
+            }            
+            .columna-imagen {                
+                flex: none;                
+                width: 100%;                
+                order: -1;            
+            }            
+            .contenedor-imagen-arbol {                
+                height: 400px;            
+            }            
+            .columna-info {                
+                flex: none;                
+                width: 100%;            
+            }            
+            .titulo-arbol {                
+                font-size: 36px;            
+            }            
+            .subtitulo {                
+                font-size: 18px;            
+            }            
+            .simulador-pantalla {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }    
     </style>
 </head>
-<body>
+<body>    
+    <header class="encabezado-fuera">        
+        <h1 class="titulo-arbol">Charles Darwin</h1>        
+        <p class="subtitulo">Taxodium mucronatum (Ahuehuete)</p>    
+    </header>    
+    <main class="contenedor-principal">        
+        <section class="columna-imagen">
+            <div class="contenedor-imagen-arbol">
+                <img class="imagen-arbol-plantado" src="charle.jpg" alt="Sabino recién plantada en el CECyT 19, nombrada Charles">
+            </div>
+        </section>      
+        <aside class="columna-info">            
+            <section class="seccion-qr">                
+                <img class="qr-code" src="https://api.qrcode-monkey.com/tmp/50ca324e3e5ee00f5b63a89f5cd38265.svg?1774246709551" width="160" alt="Código QR Sabino">            
+            </section>            
+            <section class="grid-cuadros">                
+                <div class="cuadro">                    
+                    <h3>Características</h3>                    
+                    <ul>                        
+                        <li><strong>Tipo:</strong> Árbol gigante de inmensa longevidad</li>                        
+                        <li><strong>Altura:</strong> Alcanza alturas de 20 a 45 metros</li>                        
+                        <li><strong>Tronco:</strong> Sumamente grueso, robusto y de gran diámetro</li>                        
+                        <li><strong>Follaje:</strong> Hojas pequeñas y finas que caen en invierno</li>                    
+                    </ul>                
+                </div>                
+                <div class="cuadro">                    
+                    <h3>Ecosistema</h3>                    
+                    <ul>                        
+                        <li><strong>Hábitat:</strong> Ribereño, crece junto a ríos, arroyos o manantiales</li>                        
+                        <li><strong>Clima ideal:</strong> Templados a semicálidos con alta humedad</li>                        
+                        <li><strong>Suelo:</strong> Terrenos profundos, fangosos y muy húmedos</li>                    
+                    </ul>                
+                </div>                
+                <div class="cuadro">                    
+                    <h3>Impacto Social</h3>                    
+                    <ul>                        
+                        <li>Declarado históricamente como el Árbol Nacional de México</li>                        
+                        <li>Símbolo cultural de identidad, misticismo y leyenda ancestral</li>                        
+                        <li>Previene la erosión de las riberas y protege los mantos acuíferos</li>                        
+                        <li>Ofrece majestuosas zonas de sombra y refugio ecológico masivo</li>                    
+                    </ul>                
+                </div>            
+            </section>        
+        </aside>    
+    </main>    
+    
+    <footer class="seccion-inferior">        
+        
+        <section class="contenedor-simulador">
+            <h2 class="simulador-titulo">Laboratorio de Selección Natural</h2>
+            <p class="simulador-descripcion">
+                Darwin descubrió que el entorno selecciona a los seres mejor adaptados. Cambia el clima de las Islas Galápagos y observa cómo cambia la población de pinzones según la disponibilidad de alimento.
+            </p>
+            
+            <div class="simulador-controles">
+                <button class="btn-clima activo" onclick="cambiarClima('normal', this)">Clima Normal</button>
+                <button class="btn-clima" onclick="cambiarClima('sequia', this)">Sequía Severa</button>
+                <button class="btn-clima" onclick="cambiarClima('lluvia', this)">Lluvias Torrenciales</button>
+            </div>
+            
+            <div class="simulador-pantalla">
+                <div class="organismo-caja" id="pinzon-grueso">
+                    <span class="grafico-ave" id="icono-grueso">🦅</span>
+                    <div class="ave-nombre">Pajaro de Pico Grande</div>
+                    <div class="ave-detalle" id="txt-grueso">Alimento: Semillas duras</div>
+                    <div class="poblacion-barra-bg">
+                        <div class="poblacion-barra-color" id="barra-grueso" style="width: 45%;"></div>
+                    </div>
+                </div>
+                
+                
+                <div class="organismo-caja" id="pinzon-fino">
+                    <span class="grafico-ave" id="icono-fino">🐦</span>
+                    <div class="ave-nombre">Pajaro de Pico Fino</div>
+                    <div class="ave-detalle" id="txt-fino">Alimento: Insectos y nectar</div>
+                    <div class="poblacion-barra-bg">
+                        <div class="poblacion-barra-color" id="barra-fino" style="width: 45%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="explicacion-dinamica" id="texto-explicativo">
+                <strong>Estado actual:</strong> En condiciones normales, ambos tipos de ave consiguen suficiente alimento para mantener sus poblaciones equilibradas en la isla.
+            </div>
+        </section>
+        
+        <div class="boton-contenedor">            
+            <a href="index.html" class="boton-regresar">                
+                Volver al Listado            
+            </a>        
+        </div>    
+    </footer>
 
-    <div class="contenedor">
-        <div class="titulo-arbol">Árbol 14</div>
-     <p><img src="https://api.qrcode-monkey.com/tmp/50ca324e3e5ee00f5b63a89f5cd38265.svg?1774246709551" width="300"></p>
-        <a href="index.html" class="boton-regresar">⬅ Volver al Listado</a>
-    </div>
+    <script>
+        function cambiarClima(tipo, elemento) {
+            
+            document.querySelectorAll('.btn-clima').forEach(btn => btn.classList.remove('activo'));
+            
+            elemento.classList.add('activo');
+            
+            const barraGrueso = document.getElementById('barra-grueso');
+            const barraFino = document.getElementById('barra-fino');
+            const textoExplicativo = document.getElementById('texto-explicativo');
+            const iconoGrueso = document.getElementById('icono-grueso');
+            const iconoFino = document.getElementById('icono-fino');
 
-  
-
+            if (tipo === 'normal') {
+                barraGrueso.style.width = "50%";
+                barraFino.style.width = "50%";
+                iconoGrueso.style.transform = "scale(1)";
+                iconoFino.style.transform = "scale(1)";
+                textoExplicativo.innerHTML = "<strong>Efecto Darwin:</strong> En condiciones óptimas, los recursos son estables. Ambas especies coexisten perfectamente ya que no compiten directamente por el mismo tipo de comida.";
+            } 
+            else if (tipo === 'sequia') {
+                barraGrueso.style.width = "85%";
+                barraFino.style.width = "15%";
+                iconoGrueso.style.transform = "scale(1.2)";
+                iconoFino.style.transform = "scale(0.8)";
+                textoExplicativo.innerHTML = "<strong>Efecto Darwin:</strong> La sequía extingue las plantas blandas y los insectos. Solo quedan semillas duras y secas. Los pájaros con <strong>picos grandes y fuertes</strong> rompen las semillas y sobreviven, reproduciéndose más. ¡La población evoluciona hacia picos gruesos!";
+            } 
+            else if (tipo === 'lluvia') {
+                barraGrueso.style.width = "20%";
+                barraFino.style.width = "85%";
+                iconoGrueso.style.transform = "scale(0.8)";
+                iconoFino.style.transform = "scale(1.2)";
+                textoExplicativo.innerHTML = "<strong>Efecto Darwin:</strong> Las lluvias masivas inundan los suelos provocando sobrepoblación de enredaderas, flores e insectos. Los pinzones de <strong>pico fino y preciso</strong> se dan un banquete veloz, mientras que los de pico pesado gastan demasiada energía. ¡La selección natural favorece al pico fino!";
+            }
+        }
+    </script>
 </body>
 </html>
