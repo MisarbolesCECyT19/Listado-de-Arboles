@@ -1,66 +1,304 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Arbol 16 - CECyT 19</title>
-    <style>
-        body {
-            background-color: #f4f4f4; 
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-        .contenedor {
-            background-color: white;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .titulo-arbol {
-            color: #6a1b31; 
-            font-size: 35px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .info-tecnica {
-            text-align: left;
-            display: inline-block;
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-        .boton-regresar {
-            display: inline-block;
-            margin-top: 30px;
-            background-color: #228B22;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .boton-regresar:hover {
-            background-color: #006400;
-            transform: scale(1.05);
-        }
-        img {
-            border-radius: 10px;
-            margin-top: 20px;
-            border: 3px solid #6a1b31;
-        }
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>    
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Jane Austen: Limonero - CECyT 19</title>    
+    <link rel="icon" href="img/logosabino.png">    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">    
+    <style>        
+        :root {            
+            --color-principal: #7A1C31;            
+            --color-secundario: #7A1C31;            
+            --color-secundario-hover: #5c1222;            
+            --bg-pantalla: #faf6f7;            
+            --texto-oscuro: #2b1419;            
+            --texto-claro: #7a686b;            
+            --accent: #eed2d5;            
+            --sombra-suave: 0 4px 15px rgba(122, 28, 49, 0.04);            
+            --borde-redondeado: 16px;        
+        }        
+        body {            
+            background-color: var(--bg-pantalla);            
+            font-family: 'Inter', sans-serif;            
+            margin: 0;            
+            padding: 40px 20px;            
+            color: var(--texto-oscuro);            
+            display: flex;            
+            flex-direction: column;            
+            align-items: center;        
+        }        
+        .encabezado-fuera {            
+            text-align: center;            
+            margin-bottom: 40px;            
+            max-width: 900px;            
+            width: 100%;        
+        }        
+        .titulo-arbol {            
+            color: var(--color-principal);            
+            font-family: 'Playfair Display', serif;            
+            font-size: 48px;            
+            font-weight: 700;            
+            margin: 0 0 10px 0;            
+            letter-spacing: -0.5px;        
+        }        
+        .subtitulo {            
+            font-style: italic;            
+            color: var(--texto-claro);            
+            font-size: 20px;            
+            margin: 0;            
+            font-weight: 400;            
+            letter-spacing: 0.5px;        
+        }        
+        .contenedor-principal {            
+            background-color: white;            
+            max-width: 1100px;            
+            width: 100%;            
+            border-radius: var(--borde-redondeado);            
+            box-shadow: 0 10px 30px rgba(122, 28, 49, 0.06);            
+            display: flex;            
+            gap: 40px;            
+            padding: 50px;            
+            box-sizing: border-box;            
+            overflow: hidden;            
+            animation: slideUp 0.6s ease-out forwards;        
+        }        
+        @keyframes slideUp {            
+            from { opacity: 0; transform: translateY(20px); }            
+            to { opacity: 1; transform: translateY(0); }        
+        }        
+        .columna-imagen {            
+            flex: 1.2;            
+            display: flex;            
+            align-items: center;            
+            justify-content: center;        
+        }        
+        .contenedor-imagen-arbol {            
+            width: 100%;            
+            height: 100%;            
+            max-height: 700px;            
+            border-radius: 12px;            
+            overflow: hidden;            
+            box-shadow: var(--sombra-suave);            
+            border: 1px solid rgba(0, 0, 0, 0.05);            
+            box-sizing: border-box;        
+        }        
+        .imagen-arbol-plantado {            
+            width: 100%;            
+            height: 100%;            
+            object-fit: cover;            
+            display: block;        
+        }        
+        .columna-info {            
+            flex: 1;            
+            display: flex;            
+            flex-direction: column;            
+            gap: 30px;        
+        }        
+        .seccion-qr {            
+            text-align: center;            
+            padding: 20px;            
+            border: 1px solid #edf2f7;            
+            border-radius: 12px;            
+            background-color: #fafbfd;        
+        }        
+        .qr-code {            
+            border-radius: 12px;            
+            padding: 10px;            
+            background: white;            
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);            
+            border: 2px solid #edf2f7;        
+        }        
+        .grid-cuadros {            
+            display: grid;            
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));            
+            gap: 20px;        
+        }        
+        .cuadro {            
+            background: #ffffff;            
+            border: 1px solid #e2e8f0;            
+            border-radius: 12px;            
+            padding: 25px;            
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);            
+            border-left: 5px solid var(--color-principal);            
+            transition: all 0.3s ease;            
+            position: relative;            
+            overflow: hidden;        
+        }        
+        .cuadro:hover {            
+            transform: translateY(-3px);            
+            box-shadow: 0 12px 24px rgba(122, 28, 49, 0.08);            
+            border-color: #cbd5e0;            
+            border-left-width: 8px;        
+        }        
+        .cuadro h3 {            
+            color: var(--color-principal);            
+            font-family: 'Playfair Display', serif;            
+            margin: 0 0 15px 0;            
+            font-size: 22px;            
+            font-weight: 600;        
+        }        
+        .cuadro ul {            
+            padding-left: 18px;            
+            margin: 0;            
+            color: #4a5568;            
+            line-height: 1.7;        
+        }        
+        .cuadro li {            
+            margin-bottom: 8px;        
+        }        
+        .cuadro li:last-child {            
+            margin-bottom: 0;        
+        }        
+        .seccion-inferior {            
+            width: 100%;            
+            max-width: 1100px;            
+            margin-top: 40px;            
+            display: flex;            
+            flex-direction: column;            
+            align-items: center;            
+            gap: 30px;        
+        }        
+        .cuadro-frase {            
+            position: relative;            
+            width: 100%;            
+            border: 1px solid #e2e8f0;            
+            border-radius: 12px;            
+            padding: 35px 25px;            
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);            
+            overflow: hidden;            
+            text-align: center;            
+            background-color: #ffffff;            
+            box-sizing: border-box;        
+        }        
+        .cuadro-frase::before {            
+            content: "";            
+            position: absolute;            
+            top: 0; left: 0; right: 0; bottom: 0;            
+            background-image: url('data:image/webp;base64,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');            
+            background-size: cover;            
+            background-position: center;            
+            opacity: 0.20;            
+            z-index: 1;        
+        }        
+        .contenido-frase {            
+            position: relative;            
+            z-index: 2;            
+            font-style: italic;            
+            font-size: 18px;            
+            color: var(--texto-oscuro);            
+            line-height: 1.6;            
+            font-weight: 600;            
+            max-width: 800px;            
+            margin: 0 auto;        
+        }        
+        .boton-contenedor {            
+            text-align: center;        
+        }        
+        .boton-regresar {            
+            display: inline-flex;            
+            align-items: center;            
+            background-color: var(--color-secundario);            
+            color: white;            
+            padding: 14px 32px;            
+            text-decoration: none;            
+            border-radius: 12px;            
+            font-weight: 600;            
+            font-size: 16px;            
+            transition: all 0.3s ease;            
+            box-shadow: 0 4px 12px rgba(122, 28, 49, 0.15);        
+        }        
+        .boton-regresar:hover {            
+            background-color: var(--color-secundario-hover);            
+            transform: translateY(-2px);            
+            box-shadow: 0 8px 20px rgba(122, 28, 49, 0.25);        
+        }        
+        @media (max-width: 900px) {            
+            .contenedor-principal {                
+                flex-direction: column;                
+                padding: 30px;                
+                gap: 30px;            
+            }            
+            .columna-imagen {                
+                flex: none;                
+                width: 100%;                
+                order: -1;            
+            }            
+            .contenedor-imagen-arbol {                
+                height: 400px;            
+            }            
+            .columna-info {                
+                flex: none;                
+                width: 100%;            
+            }            
+            .titulo-arbol {                
+                font-size: 36px;            
+            }            
+            .subtitulo {                
+                font-size: 18px;            
+            }            
+            .contenido-frase {                
+                font-size: 16px;            
+            }        
+        }    
     </style>
 </head>
-<body>
-
-    <div class="contenedor">
-        <div class="titulo-arbol">Árbol 16</div>
-      <p><img src="https://api.qrcode-monkey.com/tmp/ce2d432b0620e7ba243918d539d59282.svg?1774246973159" width="300"></p>
-        <a href="index.html" class="boton-regresar">⬅ Volver al Listado</a>
-    </div>
-
-  
-
+<body>    
+    <header class="encabezado-fuera">        
+        <h1 class="titulo-arbol">Jane Austen</h1>        
+        <p class="subtitulo">Citrus limon (Limonero)</p>    
+    </header>    
+    <main class="contenedor-principal">        
+        <section class="columna-imagen">
+            <div class="contenedor-imagen-arbol">
+                <img class="imagen-arbol-plantado" src="jake.jpg" alt="Limonero recién plantado en el CECyT 19, nombrado Jane Austen">
+            </div>
+        </section>      
+        <aside class="columna-info">            
+            <section class="seccion-qr">                
+                <img class="qr-code" src="https://api.qrcode-monkey.com/tmp/ce2d432b0620e7ba243918d539d59282.svg?1774246973159" width="160" alt="Código QR Limonero">            
+            </section>            
+            <section class="grid-cuadros">                
+                <div class="cuadro">                    
+                    <h3>Características</h3>                    
+                    <ul>                        
+                        <li><strong>Tipo:</strong> Árbol frutal cítrico de hoja perenne</li>                        
+                        <li><strong>Altura:</strong> Alcanza alturas moderadas de 3 a 6 metros</li>                        
+                        <li><strong>Follaje:</strong> Hojas de color verde brillante, elípticas y aromáticas</li>                        
+                        <li><strong>Fruto:</strong> Produce limones ovoides de corteza amarilla y alto valor cítrico</li>                    
+                    </ul>                
+                </div>                
+                <div class="cuadro">                    
+                    <h3>Ecosistema</h3>                    
+                    <ul>                        
+                        <li><strong>Hábitat:</strong> Cultivado en huertos urbanos y zonas escolares</li>                        
+                        <li><strong>Clima ideal:</strong> Templados a cálidos, con excelente exposición solar</li>                        
+                        <li><strong>Suelo:</strong> Permeables, bien drenados, arenosos y ricos en nutrientes</li>                    
+                    </ul>                
+                </div>                
+                <div class="cuadro">                    
+                    <h3>Impacto Social</h3>                    
+                    <ul>                        
+                        <li>Fomenta la educación ambiental y la agricultura sustentable en el campus</li>                        
+                        <li>Aporta frescura, flores de azahar aromáticas y estética al entorno escolar</li>                        
+                        <li>Promueve activamente el cuidado colaborativo de las áreas verdes comunes</li>                        
+                        <li>Representa un símbolo de perseverancia, crecimiento constante y vida</li>                    
+                    </ul>                
+                </div>            
+            </section>        
+        </aside>    
+    </main>    
+    <footer class="seccion-inferior">        
+        <section class="cuadro-frase">            
+            <div class="contenido-frase">                
+                No hay nada como quedarse en casa para la verdadera comodidad. Jane Austen           
+            </div>        
+        </section>        
+        <div class="boton-contenedor">            
+            <a href="index.html" class="boton-regresar">                
+                Volver al Listado            
+            </a>        
+        </div>    
+    </footer>
 </body>
 </html>
