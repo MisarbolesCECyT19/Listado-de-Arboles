@@ -141,10 +141,63 @@
             font-size: 0.9rem;
             border-top: 4px solid var(--gris-borde);
         }
+
+
+        @media (max-width: 850px) {
+
+            .header-contenedor {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 1.1rem;
+            }
+            .logo-header {
+                height: 70px;
+            }
+
+            .layout-principal {
+                display: block;
+                width: 95%;
+                margin: 1rem auto;
+            }
+
+            .columna-izquierda, .columna-centro, .columna-derecha {
+                display: block;
+                width: 100%;
+                padding: 0;
+                box-sizing: border-box;
+                margin-bottom: 1.5rem;
+            }
+
+            .layout-principal {
+                display: flex;
+                flex-direction: column;
+            }
+            .columna-centro { order: 1; }      
+            .columna-izquierda { order: 2; }   
+            .columna-derecha { order: 3; }     
+
+            
+            .bloque-imagen {
+                display: inline-block;
+                width: 48%;
+                margin-right: 2%;
+                vertical-align: top;
+            }
+            .bloque-imagen:nth-child(2n) {
+                margin-right: 0;
+            }
+            .bloque-imagen img {
+                min-height: auto;
+            }
+        }
     </style>
 </head>
 <body>
-
     <header>
         <div class="header-contenedor">
             <img src="ipnlogo.png" alt="Logo IPN" class="logo-header">
