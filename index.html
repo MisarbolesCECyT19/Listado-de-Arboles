@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="es-MX">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventario Botánico - CECyT 19</title>
     <link rel="icon" href="img/logocajaarbol.png">
@@ -17,7 +16,6 @@
             --text-muted: #7a686b;
             --accent: #eed2d5;
         }
-
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
@@ -28,7 +26,6 @@
             align-items: center;
             min-height: 100vh;
         }
-
         .hero {
             width: 100%;
             background: linear-gradient(rgba(122, 28, 49, 0.85), rgba(122, 28, 49, 0.95)), 
@@ -39,7 +36,6 @@
             box-sizing: border-box;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.8rem;
@@ -47,7 +43,6 @@
             letter-spacing: 1px;
             text-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-
         .hero h2 {
             font-size: 1rem;
             font-weight: 400;
@@ -56,7 +51,6 @@
             margin: 0;
             opacity: 0.9;
         }
-
         .container {
             max-width: 1200px;
             width: 92%;
@@ -64,18 +58,15 @@
             margin-bottom: 60px;
             animation: slideUp 0.8s ease-out forwards;
         }
-
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
-
         .card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -92,13 +83,11 @@
             position: relative;
             overflow: hidden;
         }
-
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(122, 28, 49, 0.1);
             border-left-width: 10px;
         }
-
         .card::after {
             content: '';
             position: absolute;
@@ -108,24 +97,20 @@
             transition: opacity 0.3s ease;
             pointer-events: none;
         }
-
         .card:hover::after {
             opacity: 0.2;
         }
-
         .card-content {
             display: flex;
             flex-direction: column;
             z-index: 1;
         }
-
-        .card-title {
-               font-size: 1.3rem;
+        .card-title {   
+            font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 5px;
             font-family: 'Playfair Display', serif;
         }
-
         .card-subtitle {
             font-size: 0.75rem;
             color: var(--text-muted);
@@ -133,7 +118,6 @@
             letter-spacing: 1.5px;
             font-weight: 600;
         }
-
         .card-icon {
             width: 45px;
             height: 45px;
@@ -144,8 +128,8 @@
             justify-content: center;
             color: var(--primary);
             font-weight: 600;
-            font-size: 1.2rem;
-                z-index: 1;
+            font-size: 1.2rem;    
+            z-index: 1;
             transition: background 0.3s, color 0.3s, transform 0.3s;
         }  
         .card:hover .card-icon {
@@ -154,10 +138,35 @@
             transform: scale(1.1) rotate(-10deg);
         }
 
+        .btn-indice {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(122, 28, 49, 0.4);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-indice:hover {
+            background-color: var(--text-main);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
         footer {
             text-align: center;
-            padding: 30px;
-                color: var(--text-muted);
+            padding: 30px;    
+            color: var(--text-muted);
             font-size: 0.85rem;
             width: 100%;
             background: white;
@@ -165,12 +174,18 @@
             letter-spacing: 1px;
             margin-top: auto;
         }
-
         @media (max-width: 600px) {
             .hero { padding: 60px 20px 100px 20px; }
             .hero h1 { font-size: 2.5rem; }
             .container { width: 95%; margin-top: -60px; }
             .grid { grid-template-columns: 1fr; }
+             
+            .btn-indice {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -180,6 +195,10 @@
         <h1>Inventario Botánico</h1>
         <h2>Proyecto de Reforestación - CECyT 19 "Leona Vicario"</h2>
     </div>
+
+    <a href="k1.html" class="btn-indice">
+         Volver al Índice
+    </a>
 
     <div class="container">
         <div class="grid">
@@ -201,10 +220,8 @@
             <a href="Arbol 16.html" class="card"><div class="card-content"><span class="card-title">Jane Austen</span><span class="card-subtitle">Limonero</span></div><div class="card-icon">16</div></a>
             <a href="Arbol 17.html" class="card"><div class="card-content"><span class="card-title">Charles Dickens</span><span class="card-subtitle">Sabino</span></div><div class="card-icon">17</div></a>
             <a href="Arbol 18.html" class="card"><div class="card-content"><span class="card-title">Hiparco de Nicea</span><span class="card-subtitle">Olivo</span></div><div class="card-icon">18</div></a>
-          
+            <a href="Arbol 19.html" class="card"><div class="card-content"><span class="card-title">Krilin</span><span class="card-subtitle">Jacaranda</span></div><div class="card-icon">19</div></a>
         </div>
-                                                 </div>
-
-
+    </div>
 </body>
 </html>
