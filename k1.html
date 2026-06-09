@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Aula - Generación Verde</title>
     <style>
@@ -142,9 +142,7 @@
             border-top: 4px solid var(--gris-borde);
         }
 
-
         @media (max-width: 850px) {
-
             .header-contenedor {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -181,15 +179,14 @@
             .columna-izquierda { order: 2; }   
             .columna-derecha { order: 3; }     
 
-            
-            .bloque-imagen {
-                display: inline-block;
-                width: 48%;
-                margin-right: 2%;
-                vertical-align: top;
+            .columna-izquierda, .columna-derecha {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
             }
-            .bloque-imagen:nth-child(2n) {
-                margin-right: 0;
+            .bloque-imagen {
+                width: 49%;
+                margin-bottom: 0;
             }
             .bloque-imagen img {
                 min-height: auto;
